@@ -16,7 +16,10 @@ def rotate():
     # point_list[i][0]=rotate_center[0]+ (point_list[i][0]-rotate_center[0])*m.cos(radian) - (point_list[i][1]-rotate_center[1])*m.sin(radian)
     # point_list[i][1]=rotate_center[1]+ (point_list[i][0]-rotate_center[0])*m.sin(radian) + (point_list[i][1]-rotate_center[1])*m.cos(radian)
     for i in range(0, len(point_list)):
-        point_list[i]=[rotate_center[0]+ (point_list[i][0]-rotate_center[0])*m.cos(radian) - (point_list[i][1]-rotate_center[1])*m.sin(radian),rotate_center[1]+ (point_list[i][0]-rotate_center[0])*m.sin(radian) + (point_list[i][1]-rotate_center[1])*m.cos(radian)]
+        point_list[i]=[\
+            rotate_center[0]+ (point_list[i][0]-rotate_center[0])*m.cos(radian) - (point_list[i][1]-rotate_center[1])*m.sin(radian),\
+            rotate_center[1]+ (point_list[i][0]-rotate_center[0])*m.sin(radian) + (point_list[i][1]-rotate_center[1])*m.cos(radian)\
+                ]
         # point_list[i][1]=rotate_center[1]+ (point_list[i][0]-rotate_center[0])*m.sin(radian) + (point_list[i][1]-rotate_center[1])*m.cos(radian)
         coord_system.create_oval(point_list[i][0],
                                  point_list[i][1],
@@ -32,7 +35,7 @@ def rotate():
                                  point_list[i][1],
                                  fill="#000000",
                                  width=2)
-    print(point_list)
+    # print(point_list)
 
 global first_point
 global prev_point
@@ -68,8 +71,8 @@ def set_point(event):
                                                         outline="red")
         coord_system.tag_bind(firtst_point_element, '<Button-1>',
                               finish_construct)
-        prev_point[0] = event.x
-        prev_point[1] = event.y
+        # prev_point[0] = event.x
+        # prev_point[1] = event.y
     else:
         coord_system.create_oval(event.x,
                                  event.y,
@@ -84,8 +87,8 @@ def set_point(event):
                                  event.y,
                                  fill="#000000",
                                  width=2)
-        prev_point[0] = event.x
-        prev_point[1] = event.y
+    prev_point[0] = event.x
+    prev_point[1] = event.y
     point_list.append([event.x, event.y])
     print(point_list)
 
